@@ -2,5 +2,16 @@
 	"ImportPath": "Goproject/tgbot",
 	"GoVersion": "go1.15",
 	"GodepVersion": "v80",
-	"Deps": []
+	"Deps": [
+		{
+			"ImportPath": "github.com/technoweenie/multipartstreamer",
+			"Comment": "v1.0.1",
+			"Rev": "a90a01d73ae432e2611d178c18367fbaa13e0154"
+		},
+		{
+			"ImportPath": "gopkg.in/telegram-bot-api.v4",
+			"Comment": "v4.6.4",
+			"Rev": "9860bdfd3a171ceafb6e1eafa163482a6ef92643"
+		}
+	]
 }
