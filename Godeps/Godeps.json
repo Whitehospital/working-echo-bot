@@ -1,0 +1,6 @@
+{
+	"ImportPath": "Goproject/tgbot",
+	"GoVersion": "go1.15",
+	"GodepVersion": "v80",
+	"Deps": []
+}
