@@ -8,24 +8,40 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+
+	tgbotapi "gopkg.in/telegram-bot-api.v4"
+)
+
+const (
+	webHook = "https://git.heroku.com/tgbottest2.git"
 )
 
 func main() {
 	botToken := "1062111607:AAHapNKc6vhIp23cMnBF3Cz8qaVDp_dGWkw"
-	botApi := "https://api.telegram.org/bot"
-	botUrl := botApi + botToken
+	botAPI := "https://api.telegram.org/bot"
+	botURL := botAPI + botToken
 	offset := 0
 	for {
-		updates, err := getUpdates(botUrl, offset)
+		updates, err := getUpdates(botURL, offset)
 		if err != nil {
 			log.Println("Somethingwent wrong: ", err.Error())
 		}
 		for _, update := range updates {
-			err = respond(botUrl, update)
+			err = respond(botURL, update)
 			offset = update.UpdateId + 1
 		}
 		fmt.Println(updates)
 	}
+	bot, err := tgbotapi.NewBotAPI(botToken)
+	if err != nil {
+		log.Fatal("creation bot: ", err)
+	}
+	log.Println("bot created")
+
+	if _, err := bot.SetWebhook(tgbotapi.NewWebhook(webHook)); err != nil {
+		log.Fatal("setting webHook %v; error: %v", webHook, err)
+	}
+	log.Println("vebHook set")
 
 }
 
