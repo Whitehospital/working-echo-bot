@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	webHook = "https://git.heroku.com/tgbottest2.git"
+	webHook = "https://git.heroku.com/desolate-earth-45613.git"
 )
 
 func main() {
