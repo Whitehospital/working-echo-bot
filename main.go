@@ -17,10 +17,22 @@ const (
 )
 
 func main() {
-	botToken := "1062111607:AAHapNKc6vhIp23cMnBF3Cz8qaVDp_dGWkw"
+	botToken := "1378294896:AAECzw5BejQPLOy6mNRfhW45zYDjPmKXm6g"
 	botAPI := "https://api.telegram.org/bot"
 	botURL := botAPI + botToken
 	offset := 0
+
+	groupID := "-52457356"
+	items, err := getPosts(groupID)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, item := range items {
+		log.Print(item)
+	}
+	return
+
 	for {
 		updates, err := getUpdates(botURL, offset)
 		if err != nil {
